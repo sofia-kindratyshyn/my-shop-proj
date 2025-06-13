@@ -1,0 +1,44 @@
+.container{
+    display: flex;
+    font-family: "Roboto", sans-serif;
+    align-items: center;
+    justify-content: space-between;
+}
+.flexed{
+    display: flex;
+    gap: 22px;
+}
+
+.hdr_links_list{
+    display: flex;
+    list-style: none;
+    gap: 17px;
+    align-items: center;
+}
+.logo{
+font-weight: 900;
+font-size: 23px;
+letter-spacing: 0.03em;
+color: #fff;
+}
+
+button{
+    border-radius: 5px;
+padding: 4px 6px;
+font-weight: 400;
+font-size: 16px;
+letter-spacing: 0.03em;
+color: #fff;
+background-color: #3231a2;
+border: none;
+align-self: center;
+height: 30px;
+}
+
+a{
+    font-weight: 400;
+font-size: 16px;
+letter-spacing: 0.03em;
+text-align: center;
+color: #f7f7f7;
+}

@@ -1,0 +1,80 @@
+.image_card{
+    display: flex;
+    gap: 7px;
+}
+
+.product_list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.product_list_item{
+    padding: 10px 9px;
+    background-color: #ffffff;
+    border: rgb(226, 224, 224) solid 0.1px;
+    border-radius:7px ;
+    min-width: 330px;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.product_list_item:hover{
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    border-color: #4a3aff;
+    transform: scale(1.01);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    transform: scale();
+}
+
+.cost_card{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+p, ul, li, h1{
+    list-style: none;
+    padding: 0;
+}
+
+.order_btn{
+    background-color:#4744ff;;
+}
+
+img{
+    max-width: 160px;
+}
+
+.product_description{
+    max-width: 140px;
+        display: -webkit-box;
+        -webkit-line-clamp: 6; /* кількість рядків */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      
+        line-clamp: 3;
+      
+}
+
+ .products_block{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} 
+
+.category{
+    display: inline-block;
+    padding: 4px 8px;
+    font-size: 12px;
+    color: #0d6efd;
+    background-color: #e7f1ff;
+    border: 1px solid #b6d4fe;
+    border-radius: 12px;
+    max-width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
