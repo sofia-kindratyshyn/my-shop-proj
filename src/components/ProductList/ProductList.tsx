@@ -11,9 +11,16 @@ interface ProductListProps {
   getValue: (value: string) => void
   value: string
   addProduct: (prod: number) => void
+  getProdToBascket: (prod: Product) => void
 }
 
-export default function ProductList({ products, getValue, value, addProduct }: ProductListProps) {
+export default function ProductList({
+  products,
+  getValue,
+  value,
+  addProduct,
+  getProdToBascket,
+}: ProductListProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [choosedProduct, setChosedProduct] = useState<Product>()
 
@@ -31,13 +38,24 @@ export default function ProductList({ products, getValue, value, addProduct }: P
           {products.map(product => (
             <li key={product.id} className={css.product_list_item} onClick={() => onClose(product)}>
               <div className={css.image_card}>
-                <LazyLoadImage src={product.images[0]} alt={product.title} effect='blur' />
+                <LazyLoadImage
+                  src={product.images[0]}
+                  alt={product.title}
+                  width={160}
+                  effect='blur'
+                />
                 <p className={css.product_description}>{product.title}</p>
               </div>
               <div className={css.cost_card}>
                 <p>{product.price} $</p>
                 <span className={css.category}>{product.category}</span>
-                <button className={css.order_btn} onClick={() => addProduct(1)}>
+                <button
+                  className={css.order_btn}
+                  onClick={() => {
+                    addProduct(1)
+                    getProdToBascket(product)
+                  }}
+                >
                   Buy
                 </button>
               </div>

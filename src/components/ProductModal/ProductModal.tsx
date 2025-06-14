@@ -28,7 +28,6 @@ export default function ProductModal({ product, setClosed }: ProductModalProps) 
         <p>Warranty Information: {product.warrantyInformation}</p>
         <p>Weight: {product.weight}</p>
         <button>Buy</button>
-        <button> Add to favorite</button>
       </div>
     </div>,
     document.body

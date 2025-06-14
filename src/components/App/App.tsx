@@ -13,6 +13,7 @@ export default function App() {
   const [searchedValue, setSearchedValue] = useState('')
   const [debouncedText] = useDebounce(searchedValue, 300)
   const [prodInBascket, setProdInBascket] = useState(0)
+  const [choosedProducts, setChoosedProducts] = useState<Product[]>([])
 
   const { data, isSuccess, isLoading, isFetching, isError, refetch } = useQuery<Product[]>({
     queryKey: ['product', debouncedText],
@@ -29,15 +30,20 @@ export default function App() {
   }
 
   const bascketProducts = (val: number) => {
-    let value = 0
-    value += val
-    setProdInBascket(value)
+    setProdInBascket(prev => (prev += val))
   }
 
+  function handleGet(prod: Product) {
+    setChoosedProducts(prev => [...prev, prod])
+  }
   return (
     <div>
       <header className={css.hdr}>
-        <Header productsInBascket={prodInBascket} />
+        {choosedProducts ? (
+          <Header productsInBascket={prodInBascket} getProdToBascket={choosedProducts} />
+        ) : (
+          <Header productsInBascket={prodInBascket} getProdToBascket={[]} />
+        )}
       </header>
       {isError && <ErrorMessage reload={handleRetry} />}
       {data && isSuccess && (
@@ -46,6 +52,7 @@ export default function App() {
           getValue={getValue}
           value={searchedValue}
           addProduct={bascketProducts}
+          getProdToBascket={handleGet}
         />
       )}
       <div
