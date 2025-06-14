@@ -31,8 +31,10 @@ export default function ProductList({
 
   return (
     <div>
-      <h2>Products</h2>
-      <SearchBox getValue={getValue} value={value} />
+      <div className={css.search_container}>
+        <h2>Products</h2>
+        <SearchBox getValue={getValue} value={value} />
+      </div>
       <div className={css.products_block}>
         <ul className={css.product_list}>
           {products.map(product => (
